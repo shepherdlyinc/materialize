@@ -19,11 +19,13 @@ use mz_repr::GlobalId;
 use mz_sql::catalog::CatalogCluster;
 use mz_sql::names::QualifiedItemName;
 use mz_sql::plan::SourceSinkClusterConfig;
+use tracing::{event, warn, Level};
 
 use crate::catalog::{self, ClusterConfig, ClusterVariant, LINKED_CLUSTER_REPLICA_NAME};
 use crate::coord::Coordinator;
 use crate::error::AdapterError;
 use crate::session::Session;
+
 
 impl Coordinator {
     /// Generates the catalog operations to create a linked cluster for the
