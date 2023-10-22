@@ -226,7 +226,6 @@ impl Coordinator {
             if_not_exists_ids,
         } = self.create_source_inner(session, plans).await?;
 
-        warn!("Logging test");
         match self.catalog_transact(Some(session), ops).await {
             Ok(()) => {
                 let mut source_ids = Vec::with_capacity(sources.len());
