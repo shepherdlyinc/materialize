@@ -18,7 +18,6 @@ use std::time::{Duration, Instant};
 use anyhow::anyhow;
 use futures::future::BoxFuture;
 use itertools::Itertools;
-use log::warn;
 use maplit::btreeset;
 use mz_cloud_resources::VpcEndpointConfig;
 use mz_compute_types::dataflows::{DataflowDesc, DataflowDescription, IndexDesc};
