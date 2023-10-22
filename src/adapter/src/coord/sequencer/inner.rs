@@ -18,6 +18,7 @@ use std::time::{Duration, Instant};
 use anyhow::anyhow;
 use futures::future::BoxFuture;
 use itertools::Itertools;
+use log::warn;
 use maplit::btreeset;
 use mz_cloud_resources::VpcEndpointConfig;
 use mz_compute_types::dataflows::{DataflowDesc, DataflowDescription, IndexDesc};
@@ -225,6 +226,7 @@ impl Coordinator {
             if_not_exists_ids,
         } = self.create_source_inner(session, plans).await?;
 
+        // test commit
         match self.catalog_transact(Some(session), ops).await {
             Ok(()) => {
                 let mut source_ids = Vec::with_capacity(sources.len());
