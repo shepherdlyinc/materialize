@@ -212,4 +212,11 @@ impl Coordinator {
             self.create_cluster_replicas(&replicas).await;
         }
     }
+
+    pub fn my_func_test(
+        scx: &StatementContext
+    ) -> Result<Plan, PlanError> {
+        scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
+        Ok()
+    }
 }
