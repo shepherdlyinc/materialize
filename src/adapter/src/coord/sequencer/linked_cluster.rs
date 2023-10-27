@@ -204,7 +204,7 @@ impl Coordinator {
             // `catalog_transact`, both from the catalog state and from the
             // controller. The new replicas will be in the catalog state, and
             // need to be recreated in the controller.
-            // warn!("Logging test");
+
             let replicas: Vec<_> = cluster
                 .replicas()
                 .map(|r| (r.cluster_id, r.replica_id))
@@ -216,7 +216,8 @@ impl Coordinator {
     pub fn my_func_test(
         scx: &StatementContext
     ) -> Result<Plan, PlanError> {
-        //scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
+        warn!("Logging test");
+        scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
         Ok()
     }
 }
