@@ -216,7 +216,7 @@ impl Coordinator {
     pub fn my_func_test(
         scx: &StatementContext
     ) -> Result<Plan, PlanError> {
-        scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
+        //scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
         Ok()
     }
 }
