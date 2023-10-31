@@ -221,3 +221,13 @@ impl Coordinator {
         Ok()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[mz_ore::test]
+    fn simple_test() {
+        assert_eq!(2 + 2, 4);
+    }
+}
