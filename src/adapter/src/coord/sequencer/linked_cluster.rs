@@ -217,7 +217,7 @@ impl Coordinator {
         scx: &StatementContext
     ) -> Result<Plan, PlanError> {
         //warn!("Logging test");
-        //scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
+        scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
         Ok()
     }
 }
