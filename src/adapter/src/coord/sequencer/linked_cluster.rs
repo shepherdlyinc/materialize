@@ -19,6 +19,7 @@ use mz_repr::GlobalId;
 use mz_sql::catalog::CatalogCluster;
 use mz_sql::names::QualifiedItemName;
 use mz_sql::plan::SourceSinkClusterConfig;
+use tracing::{event, warn, Level};
 
 use crate::catalog::{self};
 use crate::coord::Coordinator;
@@ -206,5 +207,23 @@ impl Coordinator {
                 .collect();
             self.create_cluster_replicas(&replicas).await;
         }
+    }
+
+    pub fn my_func_test(
+        scx: &StatementContext
+    ) -> Result<Plan, PlanError> {
+        //warn!("Logging test");
+        scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
+        Ok()
+    }
+
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[mz_ore::test]
+    fn simple_test() {
+        assert_eq!(2 + 2, 4);
     }
 }
