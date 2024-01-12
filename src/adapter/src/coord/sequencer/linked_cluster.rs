@@ -224,6 +224,6 @@ mod tests {
 
     #[mz_ore::test]
     fn simple_test() {
-        assert_eq!(2 + 2, 4);
+        assert_eq!(2 + 3, 5);
     }
 }
