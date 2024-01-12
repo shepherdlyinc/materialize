@@ -8,4 +8,9 @@ mitigations:
     score_threshold: 0
   - name: feature_flag
     score_threshold: 75
+  - name: custom_1
+    score_threshold: 0
+    custom: true
+    label: My Custom Mitigation
+    label_url: https://api.example.com/path1?param=1
 default_system_mitigations: false
