@@ -19,11 +19,13 @@ use mz_repr::GlobalId;
 use mz_sql::catalog::CatalogCluster;
 use mz_sql::names::QualifiedItemName;
 use mz_sql::plan::SourceSinkClusterConfig;
+use tracing::{event, warn, Level};
 
 use crate::catalog::{self};
 use crate::coord::Coordinator;
 use crate::error::AdapterError;
 use crate::session::Session;
+
 
 impl Coordinator {
     /// Generates the catalog operations to create a linked cluster for the
@@ -200,11 +202,30 @@ impl Coordinator {
             // `catalog_transact`, both from the catalog state and from the
             // controller. The new replicas will be in the catalog state, and
             // need to be recreated in the controller.
+
             let replicas: Vec<_> = cluster
                 .replicas()
                 .map(|r| (r.cluster_id, r.replica_id))
                 .collect();
             self.create_cluster_replicas(&replicas).await;
         }
+    }
+
+    pub fn my_func_test(
+        scx: &StatementContext
+    ) -> Result<Plan, PlanError> {
+        //warn!("Logging test");
+        scx.require_feature_flag(&crate::session::vars::ENABLE_ASSERT_NOT_NULL)?;
+        Ok()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[mz_ore::test]
+    fn simple_test() {
+        assert_eq!(2 + 2, 4);
     }
 }

@@ -8,7 +8,7 @@
 # many different editing tools:
 #
 # https://github.com/github/gitignore/tree/master/Global
-
+.idea/
 /target
 /target-ra
 /target-xcompile

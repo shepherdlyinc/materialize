@@ -407,10 +407,10 @@ def workflow_bound_size_mz_status_history(c: Composition) -> None:
         service="testdrive_no_reset",
         input=dedent(
             """
-            > SELECT COUNT(*) > 7 FROM mz_internal.mz_source_status_history
+            > SELECT COUNT(*) > 8 FROM mz_internal.mz_source_status_history
             true
 
-            > SELECT COUNT(*) > 7 FROM mz_internal.mz_sink_status_history
+            > SELECT COUNT(*) > 8 FROM mz_internal.mz_sink_status_history
             true
             """
         ),
