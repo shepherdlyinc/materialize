@@ -1,7 +1,7 @@
 configurations:
-  - name: scoringCommentEnabled
+  - name: scoring_comment_enabled
     value: true
-  - name: scoringCommentRiskScoreThreshold
+  - name: scoring_comment_risk_score_threshold
     value: 0
 mitigations:
   - name: code_review
@@ -12,5 +12,5 @@ mitigations:
     score_threshold: 0
     custom: true
     label: My Custom Mitigation
-    label_url: https://api.example.com/path1?param=1
+    label_url: https://api.example.com/path1?param={{pr_number}}
 default_system_mitigations: false
