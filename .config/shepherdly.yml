@@ -8,6 +8,4 @@ mitigations:
     score_threshold: 0
   - name: feature_flag
     score_threshold: 75
-  - name: integration_test
-    score_threshold: 80
 default_system_mitigations: false
